@@ -22,6 +22,7 @@ class Photo{
         self.title = title
         self.tag = tag
         self.like = false
+        self.comments = "no comments"
     }
     
     init(id:String,url:String,title:String,tag:String,comments : String){

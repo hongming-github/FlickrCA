@@ -109,6 +109,7 @@ class DataManagement {
             let comments = String.fromCString(UnsafePointer<CChar>(comments_buf))
             let photo = Photo(id: id!, url: url!, title: title!, tag: tag, comments: comments!)
             findPhotos.append(photo)
+            print(findPhotos.count)
         }
         sqlite3_reset(selectByTagStatement)
         sqlite3_clear_bindings(selectByTagStatement)
@@ -190,6 +191,10 @@ class DataManagement {
         sqlite3_reset(selectAllStatement)
         sqlite3_clear_bindings(selectAllStatement)
         return findPhotos
+    }
+    
+    func closeDB(){
+        sqlite3_close(likePhotosDB)
     }
     
 }

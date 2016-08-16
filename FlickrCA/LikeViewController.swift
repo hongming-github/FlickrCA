@@ -11,6 +11,7 @@ import UIKit
 class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,NSURLSessionDataDelegate,UITextViewDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBarController: UISearchBar!
+    @IBOutlet weak var labelNoResults: UILabel!
     var dbManage : DataManagement!
     var collectionViewShowPhotos = [Photo]()
     var cellIndex = 0
@@ -22,6 +23,7 @@ class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         // Do any additional setup after loading the view, typically from a nib.
         collectionView.delegate = self
         collectionView.dataSource = self
+        searchBarController.delegate = self
         collectionViewShowPhotos = dbManage.selectAll()
     }
     
@@ -58,13 +60,13 @@ class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             }
             
         }).resume()
-        
         return cell
-        
     }
     
+        
     func textViewDidEndEditing(textView: UITextView) {
          print("cell\(cellIndex)end")
+         print(textView.text)
          dbManage.update(textView.text, url: updateUrl!)
     }
     
@@ -73,9 +75,28 @@ class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
          updateUrl = collectionViewShowPhotos[indexPath.row].url
     }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+         collectionViewShowPhotos = dbManage.findByTag((searchBarController.text?.lowercaseString)!)
+         collectionView.reloadData()
+        if collectionViewShowPhotos.count == 0 {
+            labelNoResults.hidden = false
+        }
+        else{
+            labelNoResults.hidden = true
+        }
+    }
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == "" {
+            collectionViewShowPhotos = dbManage.selectAll()
+            collectionView.reloadData()
+            labelNoResults.hidden = true
+        }
+    }
     override func viewWillAppear(animated: Bool) {
-        collectionViewShowPhotos = dbManage.selectAll()
-        collectionView.reloadData()
+         collectionViewShowPhotos = dbManage.selectAll()
+         collectionView.reloadData()
+         labelNoResults.hidden = true
     }
     
 }

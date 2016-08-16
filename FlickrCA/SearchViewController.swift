@@ -80,7 +80,7 @@ class SearchViewController: UIViewController,NSURLSessionDataDelegate {
         catch{
             print("error serializing JSON: \(error)")
         }
-        results.tag = searchString.text!
+        results.tag = searchString.text!.lowercaseString
         NSNotificationCenter.defaultCenter().postNotificationName("switchResultView", object: self)
         
     }
