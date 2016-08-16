@@ -8,11 +8,14 @@
 
 import UIKit
 
-class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,NSURLSessionDataDelegate{
+class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,NSURLSessionDataDelegate,UITextViewDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBarController: UISearchBar!
     var dbManage : DataManagement!
     var collectionViewShowPhotos = [Photo]()
+    var cellIndex = 0
+    var updateComments : String?
+    var updateUrl : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +37,8 @@ class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        
         let cell : MyCollectionCell  = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MyCollectionCell
-        
+        cell.commentsShow.delegate = self
         let imgURL:NSURL = NSURL(string: collectionViewShowPhotos[indexPath.row].url)!
         let defaultConfigObject:NSURLSessionConfiguration =
             NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -50,7 +52,7 @@ class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
                 print("Error domain %@", error!.domain);
             }
             if data != nil {
-                let img=UIImage(data:data!)
+                let img = UIImage(data:data!)
                 cell.imageshow.image = img
                 cell.commentsShow.text = self.collectionViewShowPhotos[indexPath.row].comments
             }
@@ -61,8 +63,14 @@ class LikeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    {
+    func textViewDidEndEditing(textView: UITextView) {
+         print("cell\(cellIndex)end")
+         dbManage.update(textView.text, url: updateUrl!)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+         cellIndex = indexPath.row
+         updateUrl = collectionViewShowPhotos[indexPath.row].url
     }
     
     override func viewWillAppear(animated: Bool) {

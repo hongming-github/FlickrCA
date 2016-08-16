@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyCollectionCell: UICollectionViewCell {
+class MyCollectionCell: UICollectionViewCell{
     
     @IBOutlet weak var imageshow: UIImageView!
     @IBOutlet weak var commentsShow: UITextView!

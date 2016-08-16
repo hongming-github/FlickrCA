@@ -213,7 +213,7 @@ class BigImageController:UIViewController,NSURLSessionDataDelegate, MFMailCompos
     
     override func viewWillAppear(animated: Bool) {
         if dbManage.findByUrl(bigImage.url) {
-            
+            ivLikeImage.hidden = false
         }
     }
     
