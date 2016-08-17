@@ -24,7 +24,7 @@ class BigImageController:UIViewController,NSURLSessionDataDelegate, MFMailCompos
         super.viewDidLoad()
         
         ivLikeImage.hidden = true
-        
+        self.tabBarController?.tabBar.hidden = true
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.Action, target: self, action: #selector(BigImageController.userDidTapShare))
         self.navigationItem.rightBarButtonItem = shareBar
         
@@ -59,7 +59,6 @@ class BigImageController:UIViewController,NSURLSessionDataDelegate, MFMailCompos
     func like(){
         if !isHidden {
             self.navigationController?.navigationBar.hidden = true
-            self.tabBarController?.tabBar.hidden = true
         }
         
         if bigImage.like {
@@ -200,13 +199,11 @@ class BigImageController:UIViewController,NSURLSessionDataDelegate, MFMailCompos
         if isHidden{
             //appear
             self.navigationController?.navigationBar.hidden = false
-            self.tabBarController?.tabBar.hidden = false
             isHidden = false
         }
         else{
             //hide
             self.navigationController?.navigationBar.hidden = true
-            self.tabBarController?.tabBar.hidden = true
             isHidden = true
         }
     }
@@ -219,8 +216,9 @@ class BigImageController:UIViewController,NSURLSessionDataDelegate, MFMailCompos
     
     override func viewWillDisappear(animated: Bool) {
         
+        self.tabBarController?.tabBar.hidden = false
         if bigImage.like && !dbManage.findByUrl(bigImage.url) {
-            if dbManage.create(bigImage.id, url: bigImage.url, title: bigImage.title, tag: bigImage.tag) {
+            if dbManage.create(bigImage.id, url: bigImage.url, title: bigImage.title, tag: bigImage.tag,comments : bigImage.comments!) {
                 print("create like photo successful")
             }
         }

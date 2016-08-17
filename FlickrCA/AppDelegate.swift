@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //playBackgroundMusic("Snowdream")
+        playBackgroundMusic("Snowdream")
         
         let tb:UITabBarController = window?.rootViewController as! UITabBarController
         

@@ -20,7 +20,7 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="home.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ihd-dI-ohF">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Birds" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="home.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-Pt-dMC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="flowers" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="home.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-Pt-dMC">
                                 <rect key="frame" x="115" y="319" width="115" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -224,26 +224,35 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v4l-vq-Eie">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="160"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="225"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n4C-cc-SFI">
-                                                    <rect key="frame" x="0.0" y="160" width="187.5" height="95"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5H-fH-xAI">
+                                                    <rect key="frame" x="0.0" y="225" width="187.5" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.8624358097" blue="0.3866369831" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="customSize" width="187.5" height="255"/>
                                         <connections>
-                                            <outlet property="commentsShow" destination="n4C-cc-SFI" id="312-D8-xhI"/>
+                                            <outlet property="commentsShow" destination="O5H-fH-xAI" id="GWO-wu-H4O"/>
                                             <outlet property="imageshow" destination="v4l-vq-Eie" id="FBz-Ry-lDt"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAq-07-ndv">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="trash" id="eow-W3-DaX">
+                                        <connections>
+                                            <action selector="deletePhoto:" destination="7Vi-tc-C2m" id="JGa-oa-XPJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -254,6 +263,7 @@
                         <outlet property="collectionView" destination="lRx-F1-FN0" id="LLK-M6-c8D"/>
                         <outlet property="labelNoResults" destination="p7f-TZ-nRC" id="ggH-cK-6hL"/>
                         <outlet property="searchBarController" destination="dNL-uw-dav" id="2AQ-wf-hpd"/>
+                        <outlet property="toolbar" destination="zAq-07-ndv" id="7cq-9S-4tv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCx-rR-xMt" userLabel="First Responder" sceneMemberID="firstResponder"/>

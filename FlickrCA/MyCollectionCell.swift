@@ -11,6 +11,5 @@ import UIKit
 class MyCollectionCell: UICollectionViewCell{
     
     @IBOutlet weak var imageshow: UIImageView!
-    @IBOutlet weak var commentsShow: UITextView!
-    
+    @IBOutlet weak var commentsShow: UITextField!
 }

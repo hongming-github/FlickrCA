@@ -29,6 +29,7 @@
 		C904D5E91D632CD2007662C5 /* Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C904D5E81D632CD2007662C5 /* Bridging-Header.m */; };
 		C904D5EB1D632D12007662C5 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C904D5EA1D632D12007662C5 /* search_icon.png */; };
 		C904D5EF1D632EC6007662C5 /* like_icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C904D5EE1D632EC6007662C5 /* like_icon.tiff */; };
+		C93BFCD01D648A22007BE6CE /* Snowdream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C93BFCCF1D648A22007BE6CE /* Snowdream.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C904D5E81D632CD2007662C5 /* Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bridging-Header.m"; sourceTree = "<group>"; };
 		C904D5EA1D632D12007662C5 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		C904D5EE1D632EC6007662C5 /* like_icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = like_icon.tiff; sourceTree = "<group>"; };
+		C93BFCCF1D648A22007BE6CE /* Snowdream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Snowdream.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,7 @@
 			children = (
 				C904D5CF1D632B18007662C5 /* libsqlite3.tbd */,
 				C904D5CD1D632B11007662C5 /* Social.framework */,
-				C904D59C1D632B01007662C5 /* FlickrCA */,
+				C93BFCD21D648ADA007BE6CE /* Project */,
 				C904D5B31D632B01007662C5 /* FlickrCATests */,
 				C904D5BE1D632B01007662C5 /* FlickrCAUITests */,
 				C904D59B1D632B01007662C5 /* Products */,
@@ -133,24 +135,15 @@
 			isa = PBXGroup;
 			children = (
 				C904D5E71D632CD2007662C5 /* FlickrCA-Bridging-Header.h */,
-				C904D5D11D632B47007662C5 /* home.jpg */,
 				C904D5E81D632CD2007662C5 /* Bridging-Header.m */,
 				C904D5AB1D632B01007662C5 /* Info.plist */,
-				C904D5EA1D632D12007662C5 /* search_icon.png */,
-				C904D59D1D632B01007662C5 /* AppDelegate.swift */,
-				C904D5E51D632C6F007662C5 /* BigImageController.swift */,
-				C904D5EE1D632EC6007662C5 /* like_icon.tiff */,
-				C904D5D91D632BDA007662C5 /* DataManagement.swift */,
-				C904D5DB1D632BFC007662C5 /* LikeViewController.swift */,
-				C904D5DD1D632C14007662C5 /* MyCollectionCell.swift */,
-				C904D5D51D632B90007662C5 /* Photo.swift */,
-				C904D5DF1D632C2F007662C5 /* PhotoResultsController.swift */,
-				C904D5D71D632BA5007662C5 /* PhotoSearchCell.swift */,
-				C904D5E31D632C59007662C5 /* SearchPhoto.swift */,
-				C904D5E11D632C44007662C5 /* SearchViewController.swift */,
 				C904D5A61D632B01007662C5 /* Assets.xcassets */,
-				C904D5A81D632B01007662C5 /* LaunchScreen.storyboard */,
-				C904D5A31D632B01007662C5 /* Main.storyboard */,
+				C93BFCD31D648B10007BE6CE /* Resource */,
+				C93BFCD71D648BA0007BE6CE /* App */,
+				C93BFCD51D648B82007BE6CE /* Controller */,
+				C93BFCD61D648B8E007BE6CE /* Data */,
+				C93BFCD41D648B47007BE6CE /* Model */,
+				C93BFCD81D648BB1007BE6CE /* View */,
 			);
 			path = FlickrCA;
 			sourceTree = "<group>";
@@ -172,6 +165,72 @@
 				C904D5C11D632B01007662C5 /* Info.plist */,
 			);
 			path = FlickrCAUITests;
+			sourceTree = "<group>";
+		};
+		C93BFCD21D648ADA007BE6CE /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				C904D59C1D632B01007662C5 /* FlickrCA */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		C93BFCD31D648B10007BE6CE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C904D5D11D632B47007662C5 /* home.jpg */,
+				C904D5EA1D632D12007662C5 /* search_icon.png */,
+				C93BFCCF1D648A22007BE6CE /* Snowdream.mp3 */,
+				C904D5EE1D632EC6007662C5 /* like_icon.tiff */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		C93BFCD41D648B47007BE6CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C904D5D51D632B90007662C5 /* Photo.swift */,
+				C904D5E31D632C59007662C5 /* SearchPhoto.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C93BFCD51D648B82007BE6CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C904D5E51D632C6F007662C5 /* BigImageController.swift */,
+				C904D5DB1D632BFC007662C5 /* LikeViewController.swift */,
+				C904D5DD1D632C14007662C5 /* MyCollectionCell.swift */,
+				C904D5DF1D632C2F007662C5 /* PhotoResultsController.swift */,
+				C904D5D71D632BA5007662C5 /* PhotoSearchCell.swift */,
+				C904D5E11D632C44007662C5 /* SearchViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C93BFCD61D648B8E007BE6CE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C904D5D91D632BDA007662C5 /* DataManagement.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		C93BFCD71D648BA0007BE6CE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C904D59D1D632B01007662C5 /* AppDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		C93BFCD81D648BB1007BE6CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C904D5A81D632B01007662C5 /* LaunchScreen.storyboard */,
+				C904D5A31D632B01007662C5 /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +343,7 @@
 				C904D5D21D632B47007662C5 /* home.jpg in Resources */,
 				C904D5AA1D632B01007662C5 /* LaunchScreen.storyboard in Resources */,
 				C904D5A71D632B01007662C5 /* Assets.xcassets in Resources */,
+				C93BFCD01D648A22007BE6CE /* Snowdream.mp3 in Resources */,
 				C904D5A51D632B01007662C5 /* Main.storyboard in Resources */,
 				C904D5EF1D632EC6007662C5 /* like_icon.tiff in Resources */,
 				C904D5EB1D632D12007662C5 /* search_icon.png in Resources */,
@@ -552,6 +612,7 @@
 				C904D5C61D632B01007662C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C904D5C71D632B01007662C5 /* Build configuration list for PBXNativeTarget "FlickrCATests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +621,7 @@
 				C904D5C91D632B01007662C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C904D5CA1D632B01007662C5 /* Build configuration list for PBXNativeTarget "FlickrCAUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +630,7 @@
 				C904D5CC1D632B01007662C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

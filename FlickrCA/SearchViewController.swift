@@ -16,7 +16,7 @@ class SearchViewController: UIViewController,NSURLSessionDataDelegate {
         let baseURL = "https://api.flickr.com/services/rest/?&method=flickr.photos.search"
         let apiString = "&api_key=97bc397c935a9e681a56214d5b717efa"
         let searchTag = "&tags=\(searchString.text!)"
-        let format = "&format=json&nojsoncallback=1&per_page=10&accuracy=1"
+        let format = "&format=json&nojsoncallback=1&per_page=30&accuracy=1"
         
         let requestURL = NSURL(string: baseURL + apiString + searchTag + format)
         

@@ -42,7 +42,7 @@ class DataManagement {
     func prepareStatement(){
         var sqlString : String
         //create
-        sqlString = "INSERT INTO LIKEPHOTOS (photoid,url,title,tag) VALUES (?,?,?,?)"
+        sqlString = "INSERT INTO LIKEPHOTOS (photoid,url,title,tag,comments) VALUES (?,?,?,?,?)"
         var cSql = sqlString.cStringUsingEncoding(NSUTF8StringEncoding)
         sqlite3_prepare_v2(likePhotosDB, cSql!, -1, &insertStatement, nil)
         //find by tag
@@ -67,17 +67,19 @@ class DataManagement {
         sqlite3_prepare_v2(likePhotosDB, cSql!, -1, &selectAllStatement, nil)
     }
     
-    func create(photoid : String,url : String,title : String,tag : String)->Bool{
+    func create(photoid : String,url : String,title : String,tag : String,comments : String)->Bool{
         var f : Bool
         let photoidStr = photoid as NSString?
         let urlStr = url as NSString?
         let titleStr = title as NSString?
         let tagStr = tag as NSString?
+        let commentsStr = comments as NSString?
         
         sqlite3_bind_text(insertStatement, 1, photoidStr!.UTF8String, -1, SQLITE_TRANSIENT)
         sqlite3_bind_text(insertStatement, 2, urlStr!.UTF8String, -1, SQLITE_TRANSIENT)
         sqlite3_bind_text(insertStatement, 3, titleStr!.UTF8String, -1, SQLITE_TRANSIENT)
         sqlite3_bind_text(insertStatement, 4, tagStr!.UTF8String, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_text(insertStatement, 5, commentsStr!.UTF8String, -1, SQLITE_TRANSIENT)
         
         if sqlite3_step(insertStatement) == SQLITE_DONE {
             f = true
